@@ -6,10 +6,19 @@ import Typed from 'typed.js';
 import { Social } from '../socialnav';
 import {Animated} from "react-animated-css";
 import { Button } from './Button';
+import { ButtonNav } from '../nav/ButtonNav';
+import video from './bg.mp4';
+import { useNavigate } from 'react-router-dom';
 
 const Portada = () => {
 
   const el = useRef(null);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/about');
+  }
 
   useEffect(() => {
     const typed = new Typed(el.current, {
@@ -29,18 +38,24 @@ const Portada = () => {
 
   return (
     <div>
-        <Section>
-            <div className='data font-face-pr'>
+      {/* <video src={video} autoPlay loop muted></video>
+      <ButtonNav />*/} 
+        <Section>          
+            
             <Animated animationIn="bounceInDown" isVisible={true}>
               <Photo src={Foto} alt='Foto-personal' />
             </Animated>
             <Animated animationIn="bounceInUp" isVisible={true}>
-              <h1>{'<>'}Bienvenido, yo soy Alejandro Patiño Cardona{'</>'}</h1>
-              <p>Desarrollador en {'<'}<span ref={el}></span>{'/>'}</p>
+              <div className='data font-face-pr'>
+                <h1>{'<>'}Bienvenido, yo soy Alejandro Patiño Cardona{'</>'}</h1>
+                <p>Desarrollador en {'<'}<span ref={el}></span>{'/>'}</p>
+                <Button onClick={handleClick} className='play'>Conoceme</Button>
+              </div>
+              
             </Animated>
+            
             <Social />
-            <Button className='play'>Conoceme</Button>
-            </div>
+            
         </Section>
     </div>
   )

@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-  color: white;
+  color: #282c34;
 }
 
 .App-logo {
@@ -36,6 +35,27 @@
 
 .font-face-pr {
   font-family: "Poppins-Regular";
+}
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.data {
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  #background-video { display: none; }
+  body {
+    background: url("./assets/img/bg.mp4") no-repeat;
+    background-size: cover;
+  }
 }
 
 @keyframes App-logo-spin {
