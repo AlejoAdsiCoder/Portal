@@ -7,5 +7,4 @@ export const Section = styled.section`
     justify-content: center;
     height: 100vh;
     margin: auto;
-    text-align: center;
 `

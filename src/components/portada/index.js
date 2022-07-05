@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { Photo } from './Photo';
 import Foto  from '../../assets/img/photo.jpeg';
 import { Section } from './Section';
 import Typed from 'typed.js';
@@ -9,6 +8,7 @@ import { Button } from './Button';
 import { ButtonNav } from '../nav/ButtonNav';
 import video from './bg.mp4';
 import { useNavigate } from 'react-router-dom';
+import { Me } from './me/Me';
 
 const Portada = () => {
 
@@ -39,24 +39,27 @@ const Portada = () => {
   return (
     <div>
       {/* <video src={video} autoPlay loop muted></video>
-      <ButtonNav />*/} 
-        <Section>          
+      <ButtonNav />*/}        
             
             <Animated animationIn="bounceInDown" isVisible={true}>
-              <Photo src={Foto} alt='Foto-personal' />
+              {/* <CSSTransition in={move} timeout={200} classNames="my-node"> */}
+                <Me Foto={Foto} />
+              {/* </CSSTransition> */}
             </Animated>
             <Animated animationIn="bounceInUp" isVisible={true}>
               <div className='data font-face-pr'>
                 <h1>{'<>'}Bienvenido, yo soy Alejandro Patiño Cardona{'</>'}</h1>
                 <p>Desarrollador en {'<'}<span ref={el}></span>{'/>'}</p>
-                <Button onClick={handleClick} className='play'>Conoceme</Button>
               </div>
               
             </Animated>
+              <Animated animationIn="bounceInUp" isVisible={true}>
+                 <Button onClick={handleClick} className='play'>Conoceme</Button>
+            </Animated>
+
             
             <Social />
             
-        </Section>
     </div>
   )
 }

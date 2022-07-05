@@ -1,9 +1,12 @@
 import React from 'react'
 import { Animated } from 'react-animated-css'
+import { AboutContent } from './AboutContent'
 
-export const About = () => {
+export const AboutMe = () => {
   return (
     <div>
+      <AboutContent>
+        <section className='about-me'>
        <Animated animationIn="bounceInDown" isVisible={true}>
        <div className='data font-face-pr'>
          <h1>Sobre mi</h1>
@@ -15,6 +18,8 @@ export const About = () => {
           </p>
         </div>
        </Animated>
+       </section>
+       </AboutContent>
     </div>
   )
 }

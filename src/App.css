@@ -46,10 +46,6 @@ video {
   left: 0;
 }
 
-.data {
-  text-align: center;
-}
-
 @media (max-width: 750px) {
   #background-video { display: none; }
   body {
