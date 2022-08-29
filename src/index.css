@@ -21,6 +21,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (min-width: 992px) {
+      max-width: 960px;
+  }
+
+  @media (min-width: 768px) {
+      max-width: 720px;
+  }
+
+  @media (min-width: 570px) {
+      max-width: 540px;
+  }
+
+  @media (min-width: 1440px) {
+      max-width: 1320px;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

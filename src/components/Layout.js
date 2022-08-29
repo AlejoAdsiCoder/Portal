@@ -12,6 +12,7 @@ export const Layout = ({children}) => {
 
   return (
     <div>
+      <div className='container'>
         <video src={video} autoPlay loop muted></video>
         <ButtonNav />
         <Section>
@@ -19,6 +20,7 @@ export const Layout = ({children}) => {
             {children}
             
         </Section> 
+      </div>  
     </div>
   )
 }
