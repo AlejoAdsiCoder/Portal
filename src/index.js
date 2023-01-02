@@ -8,6 +8,8 @@ import './fonts/Poppins/Poppins-Medium.ttf';
 import { BrowserRouter } from 'react-router-dom';
 import { Container } from './components/Container';
 
+import './firebase'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
