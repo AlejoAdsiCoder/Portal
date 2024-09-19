@@ -4,10 +4,19 @@ import { AboutContent } from './AboutContent'
 import {db} from '../../firebase'
 import { useEffect } from 'react'
 import ProgressBar from './ProgressBar'
+import { Button } from './Button';
+import { useNavigate } from 'react-router-dom';
+import { Section } from '../Section'
 
 export const AboutMe = () => {
 
   const [skills, setskills] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/projects');
+  }
 
     const Links = async () => {
       const docs = [];
@@ -15,9 +24,7 @@ export const AboutMe = () => {
         
         querySnapshot.forEach(doc => {
           docs.push({...doc.data(), id:doc.id})
-          console.log(docs)
           setskills(docs)
-          console.log(skills)
         });
         
       })
@@ -28,12 +35,13 @@ export const AboutMe = () => {
     }, [])
     
   return (
+    <Section>
     <div>
       <AboutContent>
         <section className='about-me'>
        <Animated className='aboutme-info' animationIn="bounceInDown" isVisible={true}>
        <div className='data font-face-pr'>
-         <h1>Sobre mi</h1>
+         <h2>Sobre mi</h2>
           <p>
           Soy Tecnólogo en Análisis y Desarrollo de Sistemas de información del SENA con 3 años y 6 meses de experiencia en tecnologías y frameworks para desarrollo web. 
           Conocimiento en lenguajes frontend y backend: HTML, CSS, Javascript, JQuery, Sass, Bootstrap, Bulma, PHP, SQL. Site builder de CMS como Drupal, Joomla y Wordpress. Manejo de bases de datos MySQL.
@@ -42,19 +50,24 @@ export const AboutMe = () => {
           </p>
         </div>
        </Animated>
-       <div className="aboutme__skill">
+       <Animated className='aboutme__skill' animationIn="bounceInDown" isVisible={true}>
+        <h2>Skills</h2>
           {
             skills.map((skill, index) => (
              <div className='myskills' key={index}>
-                  <p>{skill.name}</p>
+                  <i className={`devicon-${skill.name}-plain`}></i>
                   <ProgressBar skill={skill.name} bgcolor={skill.color} progress={skill.percent} height={30} />
               </div>
             ))
             
           }
-       </div>
+       </Animated>
+       <Animated animationIn="bounceInUp" isVisible={true}>
+          <Button onClick={handleClick} className='play'>Mi portafolio</Button>
+        </Animated>
        </section>
        </AboutContent>
     </div>
+    </Section>
   )
 }

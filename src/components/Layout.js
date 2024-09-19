@@ -15,11 +15,9 @@ export const Layout = ({children}) => {
       <div className='container'>
         <video src={video} autoPlay loop muted></video>
         <ButtonNav />
-        <Section>
             
             {children}
             
-        </Section> 
       </div>  
     </div>
   )

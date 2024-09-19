@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Foto  from '../../assets/img/photo.jpeg';
-import { Section } from './Section';
+import { Section } from './../Section';
 import Typed from 'typed.js';
 import { Social } from '../socialnav';
 import {Animated} from "react-animated-css";
@@ -37,6 +37,7 @@ const Portada = () => {
   }, [])
 
   return (
+    <Section>
     <div>
       {/* <video src={video} autoPlay loop muted></video>
       <ButtonNav />*/}        
@@ -56,11 +57,9 @@ const Portada = () => {
               <Animated animationIn="bounceInUp" isVisible={true}>
                  <Button onClick={handleClick} className='play'>Conoceme</Button>
             </Animated>
-
-            
             <Social />
-            
     </div>
+    </Section>
   )
 }
 
