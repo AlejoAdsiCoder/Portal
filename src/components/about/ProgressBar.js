@@ -4,15 +4,15 @@ const  ProgressBar = ({bgcolor, progress}) => {
     const Parentdiv = {
         height: '12%',
         width: '100%',
-        backgroundColor: 'whitesmoke',
+        border: '1px solid #00bcd4',
         borderRadius: 40,
         margin: '1.5em'
     }
 
     const Childdiv = {
-        height: '12%',
+        height: '10%',
         width: `${progress}%`,
-        backgroundColor: 'black',
+        backgroundColor: '#00bcd4',
         /* backgroundColor: (() => {
             switch (bgcolor) {
                 case "1": return "blue"

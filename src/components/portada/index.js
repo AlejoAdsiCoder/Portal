@@ -22,10 +22,10 @@ const Portada = () => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Html, CSS, JS", "React", "PHP", "MySql", "Drupal"], // Strings to display
+      strings: ["Html", "CSS", "Javascript", "React", "PHP", "MySql", "Drupal", "Angular", "C#"], // Strings to display
       // Speed settings, try diffrent values untill you get good results
       
-      typeSpeed: 40,
+      typeSpeed: 50,
       backSpeed: 40,
       backDelay: 100,
       loop: true
@@ -39,25 +39,29 @@ const Portada = () => {
   return (
     <Section>
     <div>
+      <section className='main-content'>
       {/* <video src={video} autoPlay loop muted></video>
       <ButtonNav />*/}        
             
-            <Animated animationIn="bounceInDown" isVisible={true}>
-              {/* <CSSTransition in={move} timeout={200} classNames="my-node"> */}
-                <Me Foto={Foto} />
-              {/* </CSSTransition> */}
-            </Animated>
-            <Animated animationIn="bounceInUp" isVisible={true}>
-              <div className='data font-face-pr'>
-                <h1>{'<>'}Bienvenido, yo soy Alejandro Patiño Cardona{'</>'}</h1>
-                <p>Desarrollador en {'<'}<span ref={el}></span>{'/>'}</p>
-              </div>
-              
-            </Animated>
-              <Animated animationIn="bounceInUp" isVisible={true}>
-                 <Button onClick={handleClick} className='play'>Conoceme</Button>
-            </Animated>
-            <Social />
+        <Animated animationIn="bounceInDown" isVisible={true}>
+          {/* <CSSTransition in={move} timeout={200} classNames="my-node"> */}
+            <Me Foto={Foto} />
+          {/* </CSSTransition> */}
+        </Animated>
+
+        <Animated className='aboutme-main' animationIn="bounceInUp" isVisible={true}>
+          <div className='data font-face-pr'>
+            <h1><span className='aboutme-brackets'>{'<>'}</span>Bienvenido, yo soy <span className='aboutme-name'>Alejandro Patiño Cardona</span><span className='aboutme-brackets'>{'</>'}</span></h1>
+            <p>Desarrollador en <span className='aboutme-code'>{'<'}<span ref={el}></span>{'/>'}</span></p>
+          </div>
+        </Animated>
+
+          <Animated className='aboutme-buttons' animationIn="bounceInUp" isVisible={true}>
+              <Button onClick={handleClick} className='download'>Descargar CV</Button>
+              <Button onClick={handleClick} className='play'>Conóceme</Button>
+        </Animated>
+        <Social />
+      </section> 
     </div>
     </Section>
   )

@@ -1,0 +1,36 @@
+.project__img {
+    height: 366px;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    align-items: self-end;
+}
+
+.project__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.project__head {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 50%;
+}
+
+.projects__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.svg-inline--fa {
+    transform: rotate(320deg);
+}
+

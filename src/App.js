@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AboutMe } from './components/about';
 import { Projects } from './components/projects';
 import { Layout } from './components/Layout';
+import { ProjectSelected } from './pages/project';
 import { Container } from './components/Container';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/' element={<Portada />} />
           <Route path='/about' element={<AboutMe />} />
           <Route path='/projects' element={<Projects />} />
+          <Route path="/project/:id" element={<ProjectSelected />} exact />
         </Routes>
       
     </Layout>  

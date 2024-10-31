@@ -5,16 +5,22 @@ import fb from './../../assets/icons/facebook.svg';
 import git from './../../assets/icons/github.svg';
 
 import { Bar } from './Bar';
+import { Facebook, Github, Linkedin } from 'lucide-react';
 
 export const Social = () => {
   return (
     <div>
         <Bar>
             <nav className='pres__social'>
-                <a href="https://www.linkedin.com/in/alejandro-pdev"><img src={linked} alt="linkedln" /></a>
-                <a href="https://github.com/AlejoAdsiCoder"><img src={git} alt="Github" /></a>
-                <a href="https://www.facebook.com/AlejoPatinoC/"><img src={fb} alt="Facebook" /></a>
-                
+              <a href="https://www.linkedin.com/in/alejandro-pdev" target="_blank" rel="noopener noreferrer">
+                <Linkedin size={48} color="#181111" />
+              </a>
+              <a href="https://github.com/AlejoAdsiCoder" target="_blank" rel="noopener noreferrer">
+                <Github size={48} color="#181111" />
+              </a>
+              <a href="https://www.facebook.com/AlejoPatinoC/" target="_blank" rel="noopener noreferrer">
+                <Facebook size={48} color="#181111" />
+              </a>
             </nav>
         </Bar>
     </div>

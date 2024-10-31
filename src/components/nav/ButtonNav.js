@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Hamburger from 'hamburger-react'
+import "./ButtonNav.css"
 
 export const ButtonNav = () => {
   const [isOpen, setOpen] = useState(false)
