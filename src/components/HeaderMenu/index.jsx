@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import { Home, User, Briefcase, Mail, MessageCircle } from 'lucide-react';
 import "./HeaderMenu.css"
 import { Link, useLocation } from 'react-router-dom';
+import { menuItems } from '../../MenuItems';
+import { Animated } from 'react-animated-css';
 
 const HeaderMenu = () => {
   const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState(null);
 
-  const phoneNumber = '573113943383'; // Reemplaza con tu número
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  /* const phoneNumber = '573113943383'; // Reemplaza con tu número
+  const whatsappUrl = `https://wa.me/${phoneNumber}`; */
+
+  const subject = "Solicitud de servicios de Desarrollo web"; // Cambia esto al asunto deseado
+  const email = "alejop.9318@gmail.com"; // Cambia esto a tu dirección de correo
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
   
-
-  const menuItems = [
-    { id: 'home', icon: <Home size={24} />, text: 'Inicio', path: '/' },
-    { id: 'about', icon: <User size={24} />, text: 'Acerca de mí', path: '/about' },
-    { id: 'portfolio', icon: <Briefcase size={24} />, text: 'Portafolio', path: '/projects' },
-    { id: 'contact', icon: <MessageCircle size={24} />, text: 'Contacto' },
-  ];
-
   return (
+    
     <div className="header-container">
+      <Animated animationIn="jello" isVisible={true}>
       <nav className="nav-menu">
         {menuItems.map((item) => (
           <div key={item.id} className={`menu-item ${location.pathname === item.path ? 'active' : ''}`}>
@@ -35,7 +34,7 @@ const HeaderMenu = () => {
               </div>
               </Link>
               ) : (
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <a href={mailtoLink} target="_blank" rel="noopener noreferrer">
                   <div className="icon-container">
                     <div className="icon-button">
                       {item.icon}
@@ -49,7 +48,9 @@ const HeaderMenu = () => {
           </div>
         ))}
       </nav>
+      </Animated>
     </div>
+    
   );
 };
 

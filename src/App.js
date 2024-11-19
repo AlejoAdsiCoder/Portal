@@ -7,6 +7,7 @@ import { Projects } from './components/projects';
 import { Layout } from './components/Layout';
 import { ProjectSelected } from './pages/project';
 import { Container } from './components/Container';
+import ContactPage from './pages/contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/about' element={<AboutMe />} />
           <Route path='/projects' element={<Projects />} />
           <Route path="/project/:id" element={<ProjectSelected />} exact />
+          <Route path='/contact' element={<ContactPage />} />
         </Routes>
       
     </Layout>  

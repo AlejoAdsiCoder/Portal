@@ -1,3 +1,109 @@
-.hamburger-react {
-    display: none;
+.mobile-menu .hamburger-react {
+    position: absolute !important;
+    top: 0;
+    left: 54px;
+    color: black;
+    z-index: 5;
+}
+
+.mobile-menu .menu-container .pres {
+    width: 100%;
+}
+
+.mobile-menu .menu-container .pres__social {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    height: auto;
+    color: white;
+    justify-content: space-around;
+    width: 50%;
+
+    .lucide {
+        stroke: #00ffff;
+    }
+}
+
+.hamburger-react[aria-expanded="true"]{
+    color: white;
+  }
+
+/* Contenedor principal del menú móvil */
+.mobile-menu {
+    display: block;
+}
+
+/* Ocultar en desktop */
+@media (min-width: 765px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 765px) {
+    .mobile-menu .menu-container .pres {
+        display: flex;
+    }
+}
+
+
+/* Contenedor del menú desplegable */
+.menu-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 3.5rem;
+    padding: 1.25rem;
+    padding-top: 0;
+    background-color: rgb(10, 10, 10); /* neutral-950 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 4;
+    height: 100%;
+    margin: 0;
+    top: 0;
+}
+
+/* Lista del menú */
+.menu-list {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+    color: white;
+    margin: 67px 0;
+}
+
+/* Items del menú */
+.menu-option {
+    width: 100%;
+    padding: 0.08rem;
+    border-radius: 0.75rem; /* xl */
+    background: linear-gradient(to right top, 
+        rgb(38, 38, 38), /* neutral-800 */
+        rgb(10, 10, 10), /* neutral-950 */
+        rgb(64, 64, 64)  /* neutral-700 */
+    );
+}
+
+/* Enlaces del menú */
+.menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-radius: 0.75rem; /* xl */
+    background-color: rgb(10, 10, 10); /* neutral-950 */
+    text-decoration: none;
+    color: aqua;
+}
+
+/* Título del enlace */
+.menu-title {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.125rem; /* text-lg */
+}
+
+/* Icono del menú */
+.menu-icon {
+    font-size: 1.25rem; /* text-xl */
 }

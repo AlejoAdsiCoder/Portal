@@ -1,0 +1,8 @@
+.nav-menu .menu-item:nth-child(3) .icon-button {
+    background-color: #3B82F6;
+}
+
+.nav-menu .menu-item:nth-child(3) .tooltip {
+    color: #3B82F6;
+}
+  

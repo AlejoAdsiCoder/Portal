@@ -13,6 +13,7 @@ export const AboutContent = styled.section `
 
     .aboutme-info {
         width: 100%;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         background: #06161acf;
         border-radius: 20px;
         padding: 25px;
@@ -23,10 +24,18 @@ export const AboutContent = styled.section `
 
     .aboutme-projects {
         width: 100%; 
+        max-width: 1320px;
         background: #06161acf;
         border-radius: 30px;
         color: white;
         padding: 20px 30px;
+
+        @media (max-width: 450px) {
+            .swiper {
+                max-width: 320px !important;
+            }
+        }
+        
     }
 
     .aboutme-projects a {
@@ -53,6 +62,11 @@ export const AboutContent = styled.section `
         display: flex;
         margin: 50px 0;
         gap: 2em;
+
+        @media (max-width: 765px) {
+            margin: 0;
+            flex-wrap: wrap;
+        }
     }
 
     .aboutme__exp {
@@ -65,6 +79,10 @@ export const AboutContent = styled.section `
         margin-bottom: 5em;
         color: #fff;
         font-family: Arial, sans-serif;
+    }
+
+    .aboutme-btn {
+        margin: 0 auto 40px;
     }
 
     .myskills {
@@ -167,4 +185,11 @@ export const AboutContent = styled.section `
         margin: 0.5rem 0 0;
     }
       
+    .left-contact {
+        max-width: 872px;
+    }
+
+    .right-contact {
+        max-width: 304px;
+    }
 `

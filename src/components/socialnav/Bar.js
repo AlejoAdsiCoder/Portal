@@ -7,10 +7,15 @@ export const Bar = styled.nav`
     width: 120px;
     justify-content: center;
     position: absolute;
-    height: 230px;
-    margin: auto;
+    max-height: 302px;
+    height: 100%;
     right: 0;
     top: 40%;
+    position: fixed;
+
+    @media (max-width: 765px) {
+        display: none;
+    }
 
     .pres__social {
         display: flex;
@@ -18,4 +23,5 @@ export const Bar = styled.nav`
         height: 100%;
         justify-content: space-between;
     }
+
 `

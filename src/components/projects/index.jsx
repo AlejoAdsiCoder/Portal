@@ -3,7 +3,7 @@ import {db} from '../../firebase'
 import { useEffect } from 'react'
 import BgProject from './BgProject'
 import screenlogin from '../../assets/img/screenlogin.png'
-import techfrenetic from '../../assets/img/techfrenetic.png'
+import screenlogintf from '../../assets/img/screenlogintf.png'
 import contactos from '../../assets/img/contactos.png'
 import { AboutContent } from '../about/AboutContent'
 import { Animated } from 'react-animated-css'
@@ -48,7 +48,7 @@ export const Projects = () => {
                         projects.map((pj, index) => {
                             switch (pj.id) {
                                 case "TechFrenetic":
-                                    return <BgProject bgImage={techfrenetic} title={pj.id} data={pj} id={index} />
+                                    return <BgProject bgImage={screenlogintf} title={pj.id} data={pj} id={index} />
                                     
                                 case "Gesport":
                                     return <BgProject bgImage={screenlogin} title={pj.id} data={pj} id={index} />

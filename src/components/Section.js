@@ -17,7 +17,6 @@ export const Section = styled.section`
     }
 
     .aboutme-main {
-        width: 100%;
         background: #06161acf;
         border-radius: 20px;
         padding: 25px;
@@ -43,6 +42,7 @@ export const Section = styled.section`
         display: flex;
         gap: 10px;
         justify-content: center;
+        flex-wrap: wrap;
 
         .play {
             border: 4px solid #1f13e1cf;

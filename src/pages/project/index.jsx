@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AboutContent } from '../../components/about/AboutContent'
 import { Animated } from 'react-animated-css'
 import { useLocation, useParams } from 'react-router-dom'
@@ -21,6 +21,13 @@ import screentouchtf from '../../assets/img/screentouchtf.png'
 import techfrenetic from '../../assets/img/techfrenetic.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { Social } from '../../components/socialnav'
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/swiper-bundle.css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 export const ProjectSelected = ({ title, BgImage }) => {
 
@@ -39,7 +46,7 @@ export const ProjectSelected = ({ title, BgImage }) => {
 
   const techs = strTechs ? strTechs.split(",") : [];
 
-  console.log(techs)
+  const [images, setImages] = useState([]);
 
   const gesportImages = [
       screenlogin,
@@ -78,6 +85,12 @@ export const ProjectSelected = ({ title, BgImage }) => {
         return [];
     }
   }
+
+  useEffect(() => {
+    const fetchedImages = getImages(id);
+    setImages(fetchedImages);
+    console.log(images)
+  }, [id]);
   
   return (
     <div>
@@ -121,21 +134,43 @@ export const ProjectSelected = ({ title, BgImage }) => {
             </section>
             <h3>Capturas</h3>
 
-            <ImageSlider
-              width={850}
-              height={450}
-              images={
-                getImages(id)
-              }
-              showBullets={true}
-              showNavs={true}
-              loop={true}
-              autoPlay={true}
-              style = {{
-                margin: '0 auto'
-              }}
-            />
+            <div style={{ width: '100%', maxWidth: '100vw', overflow: 'hidden', padding: '0 10px', boxSizing: 'border-box' }}>
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                navigation={true}
+                pagination={{ clickable: true }}
+                loop={true}
+                autoplay={{ delay: 3000 }}
+                style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}
+                breakpoints={{
+                  450: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                  },
+                  720: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                  },
+                }}
+              >
+                {images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={typeof image === 'string' ? image : image.url}
+                      alt={`Slide ${index}`}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
         </Animated>
+        <Social />
         </section>
       </AboutContent>
     </div>
