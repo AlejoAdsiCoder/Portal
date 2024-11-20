@@ -26,26 +26,29 @@ h1 {
 }
 
 .container {
-
-  max-width: 1440px;
+  max-width: 1320px;
   margin: 0 auto;
+}
 
-  @media (min-width: 992px) {
-      max-width: 960px;
-  }
-
-  @media (min-width: 768px) {
-      max-width: 720px;
-  }
-
-  @media (min-width: 570px) {
-      max-width: 540px;
-  }
-
-  @media (min-width: 1440px) {
-      max-width: 1320px;
+@media (max-width: 1440px) {
+  .container {
+    max-width: 996px;
   }
 }
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 975px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

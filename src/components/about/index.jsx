@@ -50,7 +50,7 @@ export const AboutMe = () => {
     <Section>
     <div>
       <AboutContent>
-        <section className='about-me'>
+       
        <Animated className='aboutme-info' animationIn="bounceInDown" animationOut="bounceOutUp" isVisible={true}>
        <div className='data font-face-pr'>
          <h2>Sobre mi</h2>
@@ -65,7 +65,7 @@ export const AboutMe = () => {
           </p>
         </div>
        </Animated>
-       
+        <section className='about-me'>
        <Animated className='aboutme__skill' animationIn="bounceInLeft" animationOut="bounceOutLeft" isVisible={true}>
         <h2>Skills</h2>
           {
@@ -100,10 +100,11 @@ export const AboutMe = () => {
        </Animated>
 
 
+       
+       </section>
        <Animated animationIn="bounceInUp" animationOut="bounceOutUp" className="aboutme-btn" isVisible={true}>
           <Button onClick={handleClick} className='play download'>Mi portafolio</Button>
         </Animated>
-       </section>
        </AboutContent>
        <Social />
     </div>

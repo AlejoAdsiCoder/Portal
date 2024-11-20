@@ -1,18 +1,30 @@
 import styled from "styled-components";
 
 export const AboutContent = styled.section `
-    display: flex;
     width: 100%;
     margin-top: 7em;
+    font-family: 'Poppins-Medium';
 
     .about-me {
         display: flex;
         column-gap: 1.5em;
         flex-wrap: wrap;
+        margin-bottom: 2.5em;
+
+         @media (min-width: 1024px) {
+            flex-wrap: nowrap;
+        }
+    }
+
+    h1, h2 {
+        color: #a0bed7;
+    }
+
+    h3 {
+        color: white;
     }
 
     .aboutme-info {
-        width: 100%;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         background: #06161acf;
         border-radius: 20px;
@@ -51,10 +63,13 @@ export const AboutContent = styled.section `
         border-radius: 20px;
         padding: 25px;
         color: white;
-        margin-bottom: 5em;
 
         p {
             flex-basis: 9em;
+        }
+
+        @media (max-width: 768px) {
+            max-width: none;
         }
     }
 
@@ -76,12 +91,16 @@ export const AboutContent = styled.section `
         border-radius: 20px;
         padding: 25px;
         color: white;
-        margin-bottom: 5em;
         color: #fff;
-        font-family: Arial, sans-serif;
+
+        @media (max-width: 768px) {
+            max-width: none;
+        }
     }
 
     .aboutme-btn {
+        display: flex;
+        justify-content: center;
         margin: 0 auto 40px;
     }
 
@@ -99,7 +118,6 @@ export const AboutContent = styled.section `
     .timeline {
         color: #fff;
         padding: 2rem;
-        font-family: Arial, sans-serif;
         position: relative;
     }
       
@@ -170,6 +188,8 @@ export const AboutContent = styled.section `
         padding-left: 25px;
         padding-right: 15px;
         vertical-align: top;
+        padding-bottom: 1.5em;
+
     }
     
     .timeline-content h3 {
@@ -191,5 +211,9 @@ export const AboutContent = styled.section `
 
     .right-contact {
         max-width: 304px;
+
+        @media (max-width: 765px) {
+            max-width: 872px;
+        }
     }
 `

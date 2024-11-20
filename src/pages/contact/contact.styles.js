@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const Card = styled.div`
@@ -53,11 +54,14 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border: 1px solid #00bcd4;
   border-radius: 0.375rem;
   font-size: 0.875rem;
+  font-family: 'Poppins-Medium';
   background: unset;
+  color: white;
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
@@ -68,12 +72,15 @@ export const Input = styled.input`
 
 export const Textarea = styled.textarea`
   width: 100%;
-  padding: 0;
+  padding: 0.5rem;
   border: 1px solid #00bcd4;
   border-radius: 0.375rem;
   font-size: 0.875rem;
+  font-family: 'Poppins-Medium';
   resize: vertical;
   background: unset;
+  color: white;
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
@@ -116,10 +123,6 @@ export const SocialIcon = styled.div`
   margin-right: 0.75rem;
 `;
 
-export const ContactInfo = styled.div`
-  margin-top: 3rem;
-`;
-
 export const ContactDetails = styled.div`
   display: flex;
   flex-direction: column;
@@ -129,7 +132,7 @@ export const ContactDetails = styled.div`
 export const ContactDetail = styled.p`
   display: flex;
   align-items: center;
-  color: #6b7280;
+  color: white;
 `;
 
 export const ContactIcon = styled.div`

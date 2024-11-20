@@ -1,5 +1,5 @@
 // src/pages/ContactPage.js
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as Styled from './contact.styles';
 import { AboutContent } from '../../components/about/AboutContent';
 import { Animated } from 'react-animated-css';
@@ -13,47 +13,36 @@ const ContactPage = () => {
     message: ''
   });
   const [statusMessage, setStatusMessage] = useState('');
+  const formRef = useRef();
 
   const parentSection = {
     display: 'flex',
     width: '100%'
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { name, email, message } = formData;
-
-    // Configura tus IDs de EmailJS
-    const serviceId = 'service_3btiuc5';
-    const templateId = 'template_a484074';
-    const publicKey = '94ySMO4Na21aZfa8O';
-
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      message
-    };
-
-    emailjs
-      .sendForm(serviceId, templateId, templateParams, publicKey)
-      .then(
-        (response) => {
-          console.log('Correo enviado con éxito:', response.status, response.text);
-          setStatusMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-          setFormData({ name: '', email: '', message: '' });
-        },
-        (error) => {
-          console.error('Error al enviar el correo:', error);
-          setStatusMessage('Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo más tarde.');
-        }
-      );
-  };
+  }; 
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(   
+       // Configura tus IDs de EmailJS
+      'service_3btiuc5',
+      'template_a7zcgvt',
+      formRef.current,  
+      '94ySMO4Na21aZfa8O'  // Public key
+    )
+    .then(() => {
+      setStatusMessage('¡Mensaje enviado con éxito!');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      setStatusMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
     });
   };
 
@@ -65,7 +54,10 @@ const ContactPage = () => {
             <Styled.Card>
               <Styled.FormColumn>
                 <Styled.Title>Contáctame</Styled.Title>
-                <Styled.Form onSubmit={handleSubmit}>
+                <Styled.ContactDetail>
+                  Disfruto conversar sobre nuevos proyectos y desafíos en front-end. Compárteme brevemente tus ideas y datos de contacto para poder aprovechar al máximo nuestra primera reunión.
+                </Styled.ContactDetail>
+                <Styled.Form ref={formRef} onSubmit={handleSubmit}>
                   <Styled.FormGroup>
                     <Styled.Label>Nombre</Styled.Label>
                     <Styled.Input
@@ -109,7 +101,6 @@ const ContactPage = () => {
         <Animated className='aboutme-info right-contact' animationIn="bounceInDown" animationOut="bounceOutUp" isVisible={true}>
           <Styled.Card>
             <Styled.Container>
-                <Styled.ContactInfo>
                   <Styled.Title>Información de Contacto</Styled.Title>
                   <Styled.ContactDetails>
                     <Styled.ContactDetail>
@@ -129,7 +120,6 @@ const ContactPage = () => {
                       <span>+57 3113943383</span>
                     </Styled.ContactDetail>
                   </Styled.ContactDetails>
-                </Styled.ContactInfo>
             </Styled.Container>
           </Styled.Card>  
         </Animated>
