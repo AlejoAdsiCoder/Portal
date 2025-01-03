@@ -70,6 +70,7 @@ export const AboutContent = styled.section `
 
         @media (max-width: 768px) {
             max-width: none;
+            margin-bottom: 1.5em;
         }
     }
 

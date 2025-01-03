@@ -8,11 +8,14 @@ import { Button } from './Button';
 import { useNavigate } from 'react-router-dom';
 import { Section } from '../Section'
 import { Social } from '../socialnav'
+import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from 'react-loading-skeleton'
 
 export const AboutMe = () => {
 
-  const [skills, setskills] = useState([]);
-  const [experiences, setexperiences] = useState([]);
+  const [skills, setSkills] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -28,8 +31,8 @@ export const AboutMe = () => {
         
         querySnapshot.forEach(doc => {
           docs.push({...doc.data(), id:doc.id})
-          console.log(docs)
-          setskills(docs)
+          setSkills(docs);
+          setIsLoading(false);
         });
         
       })
@@ -37,7 +40,8 @@ export const AboutMe = () => {
       db.collection("timeline").get().then((querySnapshot) => {
         querySnapshot.forEach(xp => {
           xps.push({...xp.data(), id:xp.id})
-          setexperiences(xps)
+          setExperiences(xps);
+          setIsLoading(false);
         })
       })
     }
@@ -45,7 +49,8 @@ export const AboutMe = () => {
     useEffect(() => {
       Links()
     }, [])
-    
+
+
   return (
     <Section>
     <div>
@@ -68,13 +73,28 @@ export const AboutMe = () => {
         <section className='about-me'>
        <Animated className='aboutme__skill' animationIn="bounceInLeft" animationOut="bounceOutLeft" isVisible={true}>
         <h2>Skills</h2>
-          {
-            skills.map((skill, index) => (
-             <div className='myskills' key={index}>
-                  <i className={`devicon-${skill.name}-plain colored`}></i>
-                  <ProgressBar skill={skill.name} bgcolor={`#00bcd4`} progress={skill.percent} height={30} />
-              </div>
-            )) 
+          { isLoading ? (
+            <div className="skills-skeleton-container">
+              {[1,2,3,4].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                  <Skeleton 
+                    circle 
+                    width={40} 
+                    height={40} 
+                    style={{ marginRight: '10px' }} 
+                  />
+                  <Skeleton width={200} height={30} />
+                </div>
+              ))}
+            </div>
+          ) : (
+              skills.map((skill, index) => (
+              <div className='myskills' key={index}>
+                    <i className={`devicon-${skill.name}-plain colored`}></i>
+                    <ProgressBar skill={skill.name} bgcolor={`#00bcd4`} progress={skill.percent} height={30} />
+                </div>
+              )) 
+            )
           }
        </Animated>
 
@@ -82,7 +102,22 @@ export const AboutMe = () => {
         <h2>Experiencias</h2>
         <div className="timeline">
           <div className="timeline-container">
-          {experiences.map((exp, index) => (
+          { isLoading ? (
+            <div className="skills-skeleton-container">
+              {[1,2,3,4].map((item) => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+                  <Skeleton 
+                    circle 
+                    width={40} 
+                    height={40} 
+                    style={{ marginRight: '10px' }} 
+                  />
+                  <Skeleton width={200} height={30} />
+                </div>
+              ))}
+            </div>
+          ) : (
+          experiences.map((exp, index) => (
             <div key={index} className="timeline-item">
               <div className="timeline-date-company">
                   <span>{exp.dates}</span><p>{exp.company}</p>
@@ -93,7 +128,8 @@ export const AboutMe = () => {
                 <p>{exp.description}</p>
                 { exp.description2 && <p>{ exp.description2 }</p>}
               </div>
-            </div>
+            </div> 
+          )
           ))}
           </div>
         </div>

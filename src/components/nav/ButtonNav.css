@@ -1,7 +1,7 @@
 .mobile-menu .hamburger-react {
     position: absolute !important;
     top: 0;
-    left: 54px;
+    left: 11px;
     color: black;
     z-index: 5;
 }
@@ -17,7 +17,7 @@
     height: auto;
     color: white;
     justify-content: space-around;
-    width: 50%;
+    width: 100%;
 
     .lucide {
         stroke: #00ffff;
@@ -31,6 +31,20 @@
 /* Contenedor principal del menú móvil */
 .mobile-menu {
     display: block;
+}
+
+@media (max-width: 765px) {
+    .mobile-menu .hamburger-react {
+        background-color: rgba(31, 41, 55, 0.9);
+        backdrop-filter: blur(4px);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        margin: 12px;
+    }
 }
 
 /* Ocultar en desktop */
@@ -70,6 +84,7 @@
     list-style: none;
     color: white;
     margin: 67px 0;
+    padding: 0;
 }
 
 /* Items del menú */

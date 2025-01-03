@@ -38,7 +38,7 @@ export const Section = styled.section`
         color: #0ce20c
     }
 
-    .aboutme-buttons {
+    .aboutme-buttons, .aboutme-btn {
         display: flex;
         gap: 10px;
         justify-content: center;
@@ -47,6 +47,7 @@ export const Section = styled.section`
         .play {
             border: 4px solid #1f13e1cf;
             color: #1f13e1cf
+            border-radius: 12px;
         }
 
         .play:hover {
