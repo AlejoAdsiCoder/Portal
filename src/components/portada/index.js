@@ -8,6 +8,7 @@ import { Button } from './Button';
 import video from './bg.mp4';
 import { useNavigate } from 'react-router-dom';
 import { Me } from './me/Me';
+import "./index.css";
 
 const Portada = () => {
 
@@ -56,7 +57,7 @@ const Portada = () => {
   }, [])
 
   return (
-    <Section>
+    <Section className="front-page">
     <div>
       <section className='main-content'>
       <video src={video} autoPlay loop muted></video> 

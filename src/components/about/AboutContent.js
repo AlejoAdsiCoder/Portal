@@ -120,6 +120,10 @@ export const AboutContent = styled.section `
         color: #fff;
         padding: 2rem;
         position: relative;
+
+        @media (max-width: 768px) {
+            padding: 0;
+        }
     }
       
     .timeline h2 {

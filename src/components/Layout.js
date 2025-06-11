@@ -9,6 +9,7 @@ import { Button } from './portada/Button'
 import { useNavigate } from 'react-router-dom'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import HeaderMenu from './HeaderMenu'
+import Footer from './footer'
 
 export const Layout = ({children}) => {
 
@@ -21,6 +22,7 @@ export const Layout = ({children}) => {
             
             {children}
             
+        <Footer />
       </div>  
     </div>
   )

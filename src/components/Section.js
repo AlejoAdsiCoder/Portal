@@ -6,10 +6,18 @@ export const Section = styled.section`
     align-items: center;
     justify-content: center;
 
+    &.front-page {
+        height: 90vh;
+
+        @media (max-width: 768px) {
+            height: auto;
+        }
+    }
+
     .main-content {
         display: flex;
         /* align-items: center; */
-        height: 100vh;
+        height: 100%;
         justify-content: center;
         text-align: center;
         flex-direction: column;
