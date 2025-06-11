@@ -1,0 +1,30 @@
+/* Footer.css */
+.footer-container {
+    background: #06161acf;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 20px 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 40;
+    box-shadow: 0 -4px 10px -3px rgba(0, 0, 0, 0.1);
+    max-width: 620px;
+    margin: 0 auto 16px;
+}
+
+.footer-content {
+    max-width: 412px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.copyright-text {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* You can add hover effects or additional styling as desired */
+.copyright-text:hover {
+    color: #3B82F6; /* Same blue color used for active menu items */
+}
