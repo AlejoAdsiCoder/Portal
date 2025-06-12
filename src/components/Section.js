@@ -21,7 +21,7 @@ export const Section = styled.section`
         justify-content: center;
         text-align: center;
         flex-direction: column;
-        margin: 49px auto;
+        margin: 49px 12px;
     }
 
     .aboutme-main {
